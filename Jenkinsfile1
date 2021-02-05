@@ -1,5 +1,10 @@
 pipeline {
-    agent { dockerfile true }
+    agent {
+      dockerfile {
+        filename 'Dockerfile'
+        args "-v $PWD:/e2e -w /e2e --name cypress.3.2.0 cypress:3.2.0"
+      }
+    }
     environment { HOME="." }
     stages {
         stage('Test') {
