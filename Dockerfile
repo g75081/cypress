@@ -1,5 +1,6 @@
 # Create cypress container -dit
 # docker build . -t cypress:3.2.0
+# docker run -dit -v $PWD:/e2e -w /e2e --name cypress.3.2.0 cypress:3.2.0
 # docker run -dit -v C:/Projects_Jenkins/cypress-target:/e2e -w /e2e --name cypress.3.2.0 cypress:3.2.0
 # old ex: docker run -dit -p 5000:80 -p 3000:8080 --name vue-docker-12 vue-docker:12
 # 3.7 3.73 3.84 3.94 3.10.1 alpine:3.9
@@ -30,4 +31,4 @@ RUN echo  " node version:    $(node -v) \n" \
   "debian version:  $(cat /etc/debian_version) \n" \
   "user:            $(whoami) \n"
 
-# ENTRYPOINT ["cypress", "run"]
+ENTRYPOINT ["cypress", "run"]
